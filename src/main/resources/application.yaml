@@ -18,3 +18,8 @@ minio:
   accessKey: minio
   secretKey: minio123
   bucket: files
+
+kafka:
+  topics:
+    input: file-upload-topic
+    output: file-converted-topic
