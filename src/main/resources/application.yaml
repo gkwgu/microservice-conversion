@@ -1,3 +1,25 @@
+server:
+  port: 8080
+
 spring:
-  application:
-    name: microservice-conversion
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: file-converter-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+minio:
+  url: http://localhost:9000
+  accessKey: minio
+  secretKey: minio123
+  bucket: files
+
+kafka:
+  topics:
+    input: file-upload-topic
+    output: file-converted-topic
