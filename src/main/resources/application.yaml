@@ -12,6 +12,8 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  application:
+      name: microservice-conversion
 
 minio:
   url: http://localhost:9000
@@ -23,3 +25,10 @@ kafka:
   topics:
     input: file-upload-topic
     output: file-converted-topic
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
